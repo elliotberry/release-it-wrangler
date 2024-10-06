@@ -7,21 +7,21 @@ const execPromise = util.promisify(exec);
 
 class WranglerPublishPlugin extends Plugin {
   async beforeRelease() {
-    this.log('Starting Wrangler publish process...');
+    console.log('Starting Wrangler publish process...');
 
     try {
       const { stderr, stdout } = await execPromise('wrangler publish');
 
       if (stdout) {
-        this.log(stdout);
+        console.log(stdout);
       }
       if (stderr) {
-        this.log.warn(stderr);
+        console.warn(stderr);
       }
 
-      this.log('Wrangler publish completed successfully.');
+      console.log('Wrangler publish completed successfully.');
     } catch (error) {
-      this.log.error('Wrangler publish failed.');
+        console.error('Wrangler publish failed.');
       throw error; // This will stop the release process if wrangler publish fails
     }
   }
