@@ -1,24 +1,22 @@
 {
   "name": "release-it-wrangler",
   "description": "wrangler publish on release-it",
-  "version": "0.0.4",
+  "version": "0.0.2",
   "author": "ɛʟʟɨօȶ b  =^._.^= ∫ <elliot@email.gd>",
   "license": "The Unlicense",
   "main": "index.js",
-  "bin": {
-    "release-it-wrangler": "./index.js"
-  },
+ 
   "type": "module",
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^2.9.0",
-    "eslint": "^9.12.0",
+    "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-perfectionist": "^3.8.0",
+    "eslint-plugin-perfectionist": "^3.9.1",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unicorn": "^56.0.0",
     "prettier": "^3.3.3",
-    "release-it": "^17.7.0"
+    "release-it": "^17.10.0"
   },
   "prettier": {
     "arrowParens": "always",
@@ -40,8 +38,5 @@
     "tabWidth": 2,
     "useTabs": false,
     "embeddedLanguageFormatting": "auto"
-  },
-  "dependencies": {
-    "@release-it/bumper": "^6.0.1"
   }
 }
