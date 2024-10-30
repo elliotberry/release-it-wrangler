@@ -10,7 +10,7 @@ class WranglerPublishPlugin extends Plugin {
     console.log("Starting Wrangler publish process...")
 
     try {
-      const { stderr, stdout } = await execPromise("wrangler publish")
+      const { stderr, stdout } = await execPromise("wrangler deploy")
 
       if (stdout) {
         this.stdout = stdout
@@ -19,7 +19,7 @@ class WranglerPublishPlugin extends Plugin {
         console.warn(stderr)
       }
 
-      console.log("Wrangler publish completed successfully.")
+      console.log("Wrangler deploy completed successfully.")
       this.isReleased = true
       
     } catch (error) {
@@ -41,9 +41,9 @@ class WranglerPublishPlugin extends Plugin {
     if (this.isReleased && deploymentID) {
       try {
         // Tag the release with the deployment ID in Git
-        await execPromise(`git tag -a ${deploymentID} -m "Release ${deploymentID}"`)
+        await execPromise(`git tag -a ${deploymentID} -m Wrangler Release ${deploymentID}"`)
         await execPromise("git push origin --tags")
-        console.log(`Successfully tagged release with Deployment ID: ${deploymentID}`)
+        console.log(`Successfully tagged release with Wrangler Deployment ID: ${deploymentID}`)
       } catch (error) {
         console.error("Failed to tag release in Git.", error)
       }
