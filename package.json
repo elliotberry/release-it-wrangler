@@ -1,7 +1,7 @@
 {
   "name": "release-it-wrangler",
   "description": "wrangler publish on release-it",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "ɛʟʟɨօȶ b  =^._.^= ∫ <elliot@email.gd>",
   "license": "The Unlicense",
   "main": "index.js",
