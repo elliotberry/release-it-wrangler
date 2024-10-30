@@ -13,7 +13,6 @@ class WranglerPublishPlugin extends Plugin {
       const { stderr, stdout } = await execPromise("wrangler publish")
 
       if (stdout) {
-       // console.log(stdout)
         this.stdout = stdout
       }
       if (stderr) {
@@ -28,20 +27,27 @@ class WranglerPublishPlugin extends Plugin {
       throw error // This will stop the release process if wrangler publish fails
     }
   }
+
   getDeploymentID(stdout) {
     let lines = stdout.split("\n")
     let lineWeNeed = lines.find((line) => line.includes("Current Version ID:"))
-    return lineWeNeed.split(":")[1].trim()
+    return lineWeNeed ? lineWeNeed.split(":")[1].trim() : null
   }
-  afterRelease() {
-    let deploymentID = this.getDeploymentID(this.stdout)
+
+  async afterRelease() {
+    const deploymentID = this.getDeploymentID(this.stdout)
     console.log(`Deployment ID: ${deploymentID}`)
-    if (this.isReleased) {
-      const name = this.getPackageName();
-      const { version } = this.getContext();
-      this.log.log(`🔗 https://registry.example.org/${name}/${version}`);
+    
+    if (this.isReleased && deploymentID) {
+      try {
+        // Tag the release with the deployment ID in Git
+        await execPromise(`git tag -a ${deploymentID} -m "Release ${deploymentID}"`)
+        await execPromise("git push origin --tags")
+        console.log(`Successfully tagged release with Deployment ID: ${deploymentID}`)
+      } catch (error) {
+        console.error("Failed to tag release in Git.", error)
+      }
     }
-    console.log(this.stdout)
   }
 }
 
