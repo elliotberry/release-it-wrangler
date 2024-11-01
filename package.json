@@ -10,7 +10,8 @@
     "wrangler",
     "release-it",
     "plugin",
-    "publish"
+    "publish",
+    "release-it-plugin"
   ],
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^2.9.0",
