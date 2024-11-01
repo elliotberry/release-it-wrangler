@@ -6,6 +6,12 @@
   "license": "The Unlicense",
   "main": "index.js",
   "type": "module",
+  "tags": [
+    "wrangler",
+    "release-it",
+    "plugin",
+    "publish"
+  ],
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^2.9.0",
     "eslint": "^9.13.0",
