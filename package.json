@@ -6,6 +6,12 @@
   "license": "The Unlicense",
   "main": "index.js",
   "type": "module",
+  "keywords": [
+    "release-it-plugin",
+    "publish",
+    "release-it",
+    "wrangler"
+  ],
   "tags": [
     "wrangler",
     "release-it",
@@ -13,6 +19,13 @@
     "publish",
     "release-it-plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elliotberry/release-it-wrangler.git"
+  },
+  "peerDependencies": {
+    "release-it": "^17.0.0"
+  },
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^2.9.0",
     "eslint": "^9.13.0",
