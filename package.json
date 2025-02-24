@@ -24,7 +24,7 @@
     "url": "https://github.com/elliotberry/release-it-wrangler.git"
   },
   "peerDependencies": {
-    "release-it": "^17.0.0"
+    "release-it": "^18.1.2"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^4.0.1",
