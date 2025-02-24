@@ -41,7 +41,7 @@ class WranglerPublishPlugin extends Plugin {
     if (this.isReleased && deploymentID) {
       try {
         // Tag the release with the deployment ID in Git
-        await execPromise(`git tag -a ${deploymentID} -m Wrangler Release ${deploymentID}"`)
+        await execPromise(`git tag -a ${deploymentID} -m "Wrangler Deployment, ID ${deploymentID}"`)
         await execPromise("git push origin --tags")
         console.log(`Successfully tagged release with Wrangler Deployment ID: ${deploymentID}`)
       } catch (error) {
